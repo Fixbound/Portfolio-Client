@@ -1,0 +1,13 @@
+.formDiv{
+    align-items: center;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "form preview";
+    align-items: center;
+    margin-top: 10px;
+    border-color: black;
+    border-style: double;
+    background-color: #e6ecf5;
+    padding: 5px;
+}

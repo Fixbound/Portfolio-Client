@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+.center-cropped img {
+    object-fit: cover;
+    width: 1920px;
+    height: 200px;
+    justify-content: center;
+  }
+
+  .bioDiv{
+      display: grid;
+      height: 40vh;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "educacion";
+      align-items: center;
+      margin-top: 10px;
+  }
+
+@media(max-width:500px){
+  .center-cropped{
+    display: none;
+  }
+}
+
+.card{
+  border: none;
+}
+

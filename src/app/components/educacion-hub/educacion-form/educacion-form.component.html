@@ -1,0 +1,41 @@
+<div class="formDiv">
+    <div class="col form">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" name="name" [(ngModel)]="upload.name" [placeholder]="upload.name"
+                            class="form-control" autofocus required>
+                    </div>
+                    <div class="form-group pt-2 pb-2">
+                        <input type="text" name="year" [(ngModel)]="upload.year" [placeholder]="upload.year"
+                            class="form-control" rows="2" required>
+                    </div>
+                    <div class="form-group pt-2 pb-2">
+                        <textarea type="text" name="description" [(ngModel)]="upload.description"
+                            [placeholder]="upload.description" class="form-control" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="image" [(ngModel)]="upload.img " [placeholder]="upload.img"
+                            class="form-control">
+                    </div>
+                    <a class="btn btn-success btn-block mt-2" href="" (click)="saveNewGame()">{{saveButton}}</a>
+                    <a class="btn btn-info btn-block mt-2" href="" style="margin-left: 5px;">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col md-4 preview" style="font-size: 120%; text-align: center;" >
+        <div style="justify-content: center;">
+            <h1>Preview</h1>
+        </div>
+    
+        <div class="container-fluid" style="display: flex; justify-content: space-evenly;">
+            <img [src]=upload.img alt="" style="width: 160px;">
+            <b>{{upload.name}}</b>
+            <i>{{upload.year}}</i>
+            <br>{{upload.description}}
+    
+        </div>
+    </div>
+</div>

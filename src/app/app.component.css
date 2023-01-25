@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+.center-cropped img {
+  object-fit: cover;
+  width: 1920px;
+  height: 200px;
+  justify-content: center;
+}
+
+.bioDiv{
+    display: grid;
+    height: 40vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "contacto bio";
+    align-items: center;
+    margin-top: 10px;
+}
+
+@media only screen and(max-width:550px){
+  .bioDiv{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "bio"
+      "contacto";
+  }
+}
+
+#card{
+  border: none;
+}
+

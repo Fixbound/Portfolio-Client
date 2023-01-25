@@ -1,0 +1,12 @@
+@media(max-width:500px){
+    .divClass{
+        justify-content: center;
+        text-align: center;
+    }
+}
+@media(max-width:1000px){
+    .loginClass{
+        display: flex;
+        align-items: flex-end;
+    }
+}

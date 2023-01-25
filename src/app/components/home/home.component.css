@@ -1,0 +1,58 @@
+.contacto{
+    align-items: center;
+}
+
+  @media (min-width:550px){
+.bioDiv{
+    display: grid;
+    height: 40vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "bio contacto";
+    align-items: center;
+    margin-top: 10px;
+}
+.center-cropped img {
+  object-fit: cover;
+  width: 100vw;
+  height: 250px;
+  justify-content: center;
+}
+.contacto{
+    margin-top: 70px;
+}
+  }
+
+@media(max-width:550px){
+  .bioDiv{
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "bio"
+      "contacto";
+  }
+  .center-cropped{
+    display: none;
+  }
+  .contacto{
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+}
+
+.gridHome{
+  display: grid;
+  height: 40vh;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+        "background"
+        "information"
+        "About-me"
+        "educacion"
+        "conocimientos"
+        "proyectos"
+        "footer";
+  
+  align-items: center;
+  margin-top: 10px;
+}
