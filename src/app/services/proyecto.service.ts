@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProyectoService {
-  API_URI = 'http://localhost:3000/api'
+  API_URI = 'backend-portfolio.fly.dev/api'
   constructor(private http: HttpClient) { }
 
   getGames(){
