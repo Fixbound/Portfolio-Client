@@ -34,7 +34,6 @@ id = this.games.name
    if(!this.flagForm && this.i == 1){
     this.gamesServicie.loginForm(id).subscribe(
       res => {
-      console.log(res)
       this.auth( res);
       },
       err => {console.error(err)
@@ -87,7 +86,6 @@ id = this.games.name
     }
   }
   authSucces(){
-    console.log('LOGGED')
     this.logged = ''
     this.i = 0;
     this.flagForm = true

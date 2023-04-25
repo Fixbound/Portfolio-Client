@@ -2,12 +2,12 @@
               <div class="row">
                 <h4 class="card-text ">Proyectos</h4>
                 <div class="container">
-                  <a class="btn btn-success" href="proyectos/add" (click)="addGame()" [hidden]="message"> <i class="bi bi-plus-circle-fill"></i> Add Item</a></div>
+                  <a class="btn btn-success" href="/#/proyectos/add" (click)="addGame()" [hidden]="message"> <i class="bi bi-plus-circle-fill"></i> Add Item</a></div>
                 </div>
   <div class="row" style="justify-content: space-evenly; overflow: hidden;">
                 <div class="col mt-4"  *ngFor="let proyect of proyect" style="justify-content: space-between; align-items: center; max-width: 300px;" >
                   <div class="row text-start" style="width: fit-content;">
-                    <a href="https://jazzy-gaufre-f18e9d.netlify.app/" class="text-primary font-monospace text-decoration-none " target="_blank" style="width: fit-content;"><h4 style="width: fit-content;">{{proyect.name}}</h4> </a>
+                    <h4 class="text-primary font-monospace text-decoration-none" style="width: fit-content;">{{proyect.name}}</h4>
                   </div >
                   
                   <div class="row text-start">

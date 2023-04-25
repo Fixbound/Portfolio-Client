@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Upload} from '../models/upload'
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectoService {
-  API_URI = 'https://backend-portfolio.fly.dev/api'
-  constructor(private http: HttpClient) { }
+  //API_URI = 'https://backend-portfolio.fly.dev/api'
+  API_URI = 'https://angular-server-p4qx.onrender.com/api'
+  constructor(private http: HttpClient) {}
 
   getGames(){
     return this.http.get(`${this.API_URI}/proyectos`);
@@ -24,8 +25,9 @@ export class ProyectoService {
     return this.http.post(`${this.API_URI}/proyectos`,game);
   }
 
-  updateGame(id:string, updatedGame:Upload): Observable<Upload>{
-    return this.http.put(`${this.API_URI}/proyectos/${id}`,updatedGame);
+  updateGame(id: string, updatedGame: Upload): Observable<Upload> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.put(`${this.API_URI}/proyectos/${id}`, updatedGame, {headers: headers});
   }
 
   loginForm(login:string){

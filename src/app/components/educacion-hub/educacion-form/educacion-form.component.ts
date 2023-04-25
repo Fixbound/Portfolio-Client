@@ -30,19 +30,19 @@ export class EducationFormComponent implements OnInit{
     this.eduService.updateGame((sessionStorage.getItem("eduEdit")|| ''),this.upload)
     .subscribe(
       res => {
+        window.alert("Guardado Correcto");
         console.log(res);
       },
       err => console.error(err)
     )
     this.updateFlag = 0 
     this.saveButton = 'Update'
-    sessionStorage.removeItem("eduEdit")
   }
   else{
     this.eduService.saveGame(this.upload)
     .subscribe(
       res => {
-  
+        window.alert("Guardado Correcto");
         console.log(res);
       },
       err => console.error(err)
@@ -59,8 +59,6 @@ ngOnInit(): void {
     this.eduService.getGame(sessionStorage.getItem("eduEdit")|| '').subscribe(
       res => {
         this.update[0] = res;
-        console.log(res);
-        console.log(this.update[0].name);
         this.upload.name =  this.update[0].name;
         this.upload.year =  this.update[0].year;
         this.upload.description =  this.update[0].description;

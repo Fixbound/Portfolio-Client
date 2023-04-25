@@ -1,12 +1,13 @@
-@media(max-width:500px){
+@media(max-width:550px){
     .divClass{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "titleClass" 
+        "loginClass";
+        align-items: center;
+        margin-top: 10px;
         justify-content: center;
-        text-align: center;
     }
-}
-@media(max-width:1000px){
-    .loginClass{
-        display: flex;
-        align-items: flex-end;
-    }
+    
 }
