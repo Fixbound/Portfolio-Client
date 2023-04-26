@@ -5,7 +5,7 @@
           <div class="row">
             <h4 class="card-text ">Educacion</h4>
             <div class="container">
-              <a class="btn btn-success" href="educacion/add" [hidden]="message" (click)="addGame()"> <i class="bi bi-plus-circle-fill"></i> Add Item</a></div>
+              <a  mat-fab extended color="accent" [hidden]="message" (click)="openDialog()"> <i class="bi bi-plus-circle-fill"></i> Add Item</a></div>
           </div>
 
           <div class="container-fluid row list" >
@@ -14,8 +14,8 @@
                   <b>{{education.name}}</b>
                  <i style="text-overflow: clip;">{{education.year}}</i> 
                   <br>{{education.description}}
-                  <a class="btn btn-danger " (click)="deleteGame(education.id)" [hidden]="message" style="margin-left: 7px;"> <i class="bi bi-trash"></i></a>
-                  <a class="btn btn-info " (click)="updateGame(education.id)" routerLink="educacion/add" [hidden]="message" style="margin-left: 7px;"> <i class="bi bi-pencil-fill"></i></a>
+                  <a  mat-mini-fab color="warn"  (click)="deleteGame(education.id)" [hidden]="message" style="margin-left: 7px;"> <i class="bi bi-trash"></i></a>
+                  <a mat-mini-fab color="primary" (click)="updateGame(education.id)"  [hidden]="message" style="margin-left: 7px;"> <i class="bi bi-pencil-fill"></i></a>
                 
                   
             </div>

@@ -3,6 +3,7 @@ import { Upload } from 'src/app/models/upload';
 import { EduService } from 'src/app/services/educacion.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-game-form',
   templateUrl: './educacion-form.component.html',
@@ -16,34 +17,36 @@ export class EducationFormComponent implements OnInit{
  update: any = [];
  message:string = ''
  upload: Upload = {
-  name:'Name',
-  year:'2000 - 2022',
-  description:'This is an Description',
-  img:'https://image.com',
+  name:'Insitución',
+  year:'2000-2000',
+  description:'Resumen',
+  img:'',
  };
  
  edit: boolean = false;
- constructor(private eduService: EduService, private route:Router, private ngZone: NgZone, private data : AuthService){}
+ constructor(private eduService: EduService, private route:Router, private ngZone: NgZone, private data : AuthService, private dialog: MatDialog){}
 
  saveNewGame(){
   if(this.updateFlag){
     this.eduService.updateGame((sessionStorage.getItem("eduEdit")|| ''),this.upload)
     .subscribe(
       res => {
+        window.alert("Guardado Correcto");
         console.log(res);
+        location.reload();
       },
       err => console.error(err)
     )
     this.updateFlag = 0 
     this.saveButton = 'Update'
-    sessionStorage.removeItem("eduEdit")
   }
   else{
     this.eduService.saveGame(this.upload)
     .subscribe(
       res => {
-  
+        window.alert("Guardado Correcto");
         console.log(res);
+        location.reload();
       },
       err => console.error(err)
     )
@@ -59,8 +62,6 @@ ngOnInit(): void {
     this.eduService.getGame(sessionStorage.getItem("eduEdit")|| '').subscribe(
       res => {
         this.update[0] = res;
-        console.log(res);
-        console.log(this.update[0].name);
         this.upload.name =  this.update[0].name;
         this.upload.year =  this.update[0].year;
         this.upload.description =  this.update[0].description;
@@ -73,6 +74,9 @@ ngOnInit(): void {
   }
   
   
+}
+close() {
+  this.dialog.closeAll();
 }
 
 }

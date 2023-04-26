@@ -1,0 +1,16 @@
+/* Definir tus propios colores */
+:root {
+    --my-app-primary: #ca8f8f;
+    --my-app-accent: #e91e63;
+    --my-app-warn: #f44336;
+  }
+
+  /* Aplicar los colores personalizados al botón de Angular Material */
+.mat-primary .mat-button-base,
+.mat-primary .mat-raised-button,
+.mat-primary .mat-flat-button,
+.mat-primary .mat-icon-button,
+.mat-primary .mat-stroked-button {
+  color: #fff;
+  background-color: var(--my-app-primary);
+}

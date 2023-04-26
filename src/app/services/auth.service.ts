@@ -11,12 +11,9 @@ export class AuthService {
   constructor() {}
   changeMessage (message : string){
     this.messageSource.next(message)
-    console.log(message)
-    console.log(this.isLogged)
   }
   changeLogging (isLogged : any){
     this.loggedSource.next(localStorage.getItem('logged'))
-    console.log(this.isLogged)
   }
 }
 

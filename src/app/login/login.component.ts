@@ -1,8 +1,10 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnInit,ViewChild, TemplateRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EduService } from '../services/educacion.service';
 import { Upload } from '../models/upload';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +14,7 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class LoginComponent implements OnInit{
+
 flagForm: boolean = true;
 hiddenValue:string = ''
 logged:string='false'
@@ -27,14 +30,13 @@ games: Upload = {
 id = this.games.name
 
 
-  constructor(private gamesServicie: EduService, private data: AuthService) { 
+  constructor(private gamesServicie: EduService, private data: AuthService, private dialog: MatDialog) { 
   }
 
   sendForm(id: string){
    if(!this.flagForm && this.i == 1){
     this.gamesServicie.loginForm(id).subscribe(
       res => {
-      console.log(res)
       this.auth( res);
       },
       err => {console.error(err)
@@ -87,13 +89,33 @@ id = this.games.name
     }
   }
   authSucces(){
-    console.log('LOGGED')
     this.logged = ''
     this.i = 0;
     this.flagForm = true
     this.hiddenValue= 'true';
     this.newMessage('');
     this.incorrect = 'false';
+    this.closeDialog();
+  }
+  
+  @ViewChild('dialog')
+  dialogTemplateRef!: TemplateRef<any>;
+
+  openDialog() {
+    this.dialog.open(this.dialogTemplateRef);
+  }
+
+  closeDialog() {
+    this.dialog.closeAll();
+  }
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 }
 
